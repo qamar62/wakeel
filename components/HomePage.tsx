@@ -26,7 +26,10 @@ export function HomePage({ c }: { c: Content }) {
               <p className="hero__ar" lang={c.hero.kickerLang} dir={c.hero.kickerDir}>
                 {c.hero.kicker}
               </p>
-              <h1>{c.hero.title}</h1>
+              <h1>
+                <span className="hero__seo">{c.hero.seoLead}</span>
+                {c.hero.title}
+              </h1>
               <p className="hero__lede">{c.hero.lede}</p>
               <div className="hero__ctas">
                 <a href="#audit" className="btn btn--primary">
@@ -127,6 +130,24 @@ export function HomePage({ c }: { c: Content }) {
                   </a>
                 </article>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* About: plain-language summary with the main search terms */}
+        <section id="about" className="section about">
+          <div className="wrap about__grid">
+            <h2 data-reveal>{c.about.title}</h2>
+            <div className="about__body" data-reveal>
+              {c.about.paragraphs.map((p) => (
+                <p key={p.slice(0, 24)}>{p}</p>
+              ))}
+              <p className="about__areas-label">{c.about.areasLabel}</p>
+              <ul className="about__areas">
+                {c.about.areas.map((a) => (
+                  <li key={a}>{a}</li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>

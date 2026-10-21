@@ -9,10 +9,8 @@ export function Services({ t }: { t: Content["services"] }) {
   const [group, setGroup] = useState(0);
   const [open, setOpen] = useState<number[]>(groups.map(() => 0));
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
-  const g = groups[group];
-
-  function toggle(i: number) {
-    setOpen((o) => o.map((v, gi) => (gi === group ? (v === i ? -1 : i) : v)));
+  function toggle(gi: number, i: number) {
+    setOpen((o) => o.map((v, k) => (k === gi ? (v === i ? -1 : i) : v)));
   }
 
   function onKey(e: React.KeyboardEvent, i: number) {
@@ -55,11 +53,20 @@ export function Services({ t }: { t: Content["services"] }) {
           ))}
         </div>
 
-        <div role="tabpanel" id={`svc-panel-${g.id}`} aria-labelledby={`svc-tab-${g.id}`} key={g.id} className="svc__group">
+        {/* Every group stays in the HTML (hidden when inactive) so search engines read all services. */}
+        {groups.map((g, gi) => (
+        <div
+          role="tabpanel"
+          id={`svc-panel-${g.id}`}
+          aria-labelledby={`svc-tab-${g.id}`}
+          key={g.id}
+          className="svc__group"
+          hidden={gi !== group}
+        >
           <p className="svc__intro">{g.intro}</p>
           <ul className="svc">
             {g.items.map((s, i) => {
-              const isOpen = open[group] === i;
+              const isOpen = open[gi] === i;
               return (
                 <li key={s.title} className="svc__row" data-open={isOpen}>
                   <h3>
@@ -67,7 +74,7 @@ export function Services({ t }: { t: Content["services"] }) {
                       className="svc__trigger"
                       aria-expanded={isOpen}
                       aria-controls={`svc-${g.id}-${i}`}
-                      onClick={() => toggle(i)}
+                      onClick={() => toggle(gi, i)}
                     >
                       <span className="svc__title">{s.title}</span>
                       <span className="svc__short">{s.short}</span>
@@ -90,6 +97,7 @@ export function Services({ t }: { t: Content["services"] }) {
             })}
           </ul>
         </div>
+        ))}
       </div>
     </section>
   );

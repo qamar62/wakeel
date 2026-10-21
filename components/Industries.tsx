@@ -20,8 +20,6 @@ export function Industries({ t }: { t: Content["industries"] }) {
     tabs.current[n]?.focus();
   }
 
-  const cur = industries[active];
-
   return (
     <section id="industries" className="section">
       <div className="wrap ind">
@@ -52,17 +50,27 @@ export function Industries({ t }: { t: Content["industries"] }) {
             ))}
           </div>
 
-          <div className="ind__panel" role="tabpanel" id={`panel-${cur.id}`} aria-labelledby={`tab-${cur.id}`} key={cur.id}>
-            <h3>{cur.label}</h3>
-            <ul>
-              {cur.items.map((it) => (
-                <li key={it}>{it}</li>
-              ))}
-            </ul>
-            <a href="#audit" className="link">
-              {fill(t.cta, { x: cur.label.toLowerCase() })}
-            </a>
-          </div>
+          {/* All panels stay in the HTML (hidden when inactive) so search engines read every industry. */}
+          {industries.map((ind, i) => (
+            <div
+              className="ind__panel"
+              role="tabpanel"
+              id={`panel-${ind.id}`}
+              aria-labelledby={`tab-${ind.id}`}
+              key={ind.id}
+              hidden={i !== active}
+            >
+              <h3>{ind.label}</h3>
+              <ul>
+                {ind.items.map((it) => (
+                  <li key={it}>{it}</li>
+                ))}
+              </ul>
+              <a href="#audit" className="link">
+                {fill(t.cta, { x: ind.label.toLowerCase() })}
+              </a>
+            </div>
+          ))}
         </div>
       </div>
     </section>

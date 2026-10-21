@@ -9,11 +9,22 @@ export const en = {
   brandAlt: site.nameAr,
   brandAltLang: "ar",
   meta: {
-    title: `${site.name} | AI agents, automation and custom software for UAE businesses`,
+    title: `AI Automation & Custom Software Company in Dubai | ${site.name}`,
     titleTemplate: `%s | ${site.name}`,
-    description: site.description,
+    description:
+      "Wakeel builds AI agents for WhatsApp, web chat and phone, plus custom CRMs, dashboards, websites and web apps for UAE businesses. Arabic and English. Free audit.",
+    ogAlt: "Wakeel: AI automation and custom software for UAE businesses",
     keywords: [
+      "AI automation company Dubai",
+      "AI automation agency UAE",
       "AI automation Dubai",
+      "AI chatbot Dubai",
+      "WhatsApp chatbot UAE",
+      "AI receptionist Dubai",
+      "CRM development UAE",
+      "website development Dubai",
+      "web app development Abu Dhabi",
+      "business automation Sharjah",
       "AI agency UAE",
       "WhatsApp AI agent",
       "AI chatbot Arabic",
@@ -56,6 +67,7 @@ export const en = {
     title: "Every enquiry answered, booked and logged. Day and night, in Arabic and English.",
     lede: "We build AI agents, automations and the software around them for UAE businesses: CRMs, dashboards, websites, apps and the servers they run on. One team, from first idea to running every day.",
     primary: "Book a free automation audit",
+    seoLead: "AI automation & software company in Dubai",
     secondary: "Estimate your hours saved",
   },
 
@@ -230,6 +242,17 @@ export const en = {
     tabsAria: "Industries",
     cta: "Talk to us about {x}",
     items: industries,
+  },
+
+  about: {
+    title: "AI automation company in Dubai, serving businesses across the UAE",
+    paragraphs: [
+      "Wakeel is an AI automation and software development company based in Dubai. We build WhatsApp AI agents, Arabic AI chatbots, AI voice agents and business process automation for companies that want faster replies and less manual work, without hiring more staff.",
+      "Around those agents we build the software your business runs on: custom CRM systems, management dashboards, websites, web apps and customer portals, backend systems and integrations, and the hosting and support that keep them running. Everything is designed in Arabic and English from the start.",
+      "We work with real estate brokers, clinics, travel agencies, e-commerce stores and trading and logistics companies across Dubai, Abu Dhabi, Sharjah and the rest of the UAE, online or at your office.",
+    ],
+    areasLabel: "Areas we serve",
+    areas: ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Umm Al Quwain", "Al Ain"],
   },
 
   principles: {

@@ -2542,3 +2542,76 @@ body {
     margin-inline-start: auto;
   }
 }
+
+/* ---------- SEO lead in the H1 and About section ---------- */
+.hero__seo {
+  display: block;
+  font-family: var(--body);
+  font-size: clamp(0.85rem, 1.1vw, 0.95rem);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-stretch: 100%;
+  color: var(--accent-text);
+  margin-bottom: 16px;
+}
+:root[dir="rtl"] .hero__seo {
+  text-transform: none;
+  font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+}
+.ind__panel[hidden],
+.svc__group[hidden] {
+  display: none;
+}
+.about {
+  border-top: 1px solid var(--line);
+}
+.about__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(24px, 5vw, 72px);
+  align-items: start;
+}
+.about__grid h2 {
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  line-height: 1.08;
+  font-stretch: 88%;
+}
+:root[dir="rtl"] .about__grid h2 {
+  line-height: 1.4;
+}
+.about__body {
+  display: grid;
+  gap: 16px;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+.about__body p:first-child {
+  color: var(--fg);
+  font-size: 1.15rem;
+}
+.about__areas-label {
+  margin-top: 8px;
+  color: var(--fg-strong) !important;
+  font-weight: 600;
+  font-size: 0.95rem !important;
+}
+.about__areas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.about__areas li {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  color: var(--fg);
+  font-size: 0.92rem;
+}
+@media (max-width: 860px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+  }
+}

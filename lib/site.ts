@@ -2,7 +2,8 @@
 export const site = {
   name: "Wakeel",
   nameAr: "وكيل",
-  url: "https://wakeel.ae", // replace with the real domain
+  // Public address of the site. Set SITE_URL in .env.local when the domain changes (no trailing slash).
+  url: (process.env.SITE_URL || "https://wakeel.qaam.work").replace(/\/$/, ""),
   email: "hello@wakeel.ae",
   whatsapp: "971500000000", // international format, digits only
   location: "Dubai, United Arab Emirates",
